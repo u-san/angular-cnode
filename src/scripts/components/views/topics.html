@@ -1,0 +1,35 @@
+<div ui-view="header"></div>
+<div ui-view="sidebar"></div>
+<section class="topic-list">
+	<ul>
+		<li ng-repeat="topic in topics.data">
+			<div class="flex flex-middle">
+				<div class="flex-shrink topic-tag">
+					<tag tab="{{topic.tab}}" good="{{topic.good}}" top="{{topic.top}}"></tag>
+				</div>
+				<h3 title="topic.title"><a ui-sref="/topic/{{topic.id}}">{{topic.title}}</a></h3>
+			</div>
+			<div class="topic-con flex">
+			<a class="flex-shrink" ui-sref="/user/{{topic.author.loginname}}">
+				<img class="avatar" src="{{topic.author.avatar_url}}" />
+			</a>
+			<div class="topic-info">
+				<div class="flex flex-between">
+					<div>
+						<span>{{topic.author.loginname}}</span>
+					</div>
+					<div>
+						<b>{{topic.reply_count}}</b>
+						<span> / </span>
+						<span>{{topic.visit_count}}</span>
+					</div>
+				</div>
+				<div  class="flex flex-between">
+					<time class="time-data">{{topic.create_at|timeFormat}}</time>
+					<time class="time-data">{{topic.last_reply_at|timeFormat}}</time>
+				</div>
+			</div>
+		</div>
+		</li>
+	</ul>
+</section>

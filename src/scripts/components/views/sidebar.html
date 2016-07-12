@@ -1,0 +1,14 @@
+<ul class="sideBar" ng-class="{true: 'show'}[sidebar.sidebarShow]">
+		<li class="login-status">
+			<a ui-sref='/login' style="text-align: center;">
+				<i class='iconfont icon-peoplefill'></i>
+				<span>未登录</span>
+			</a>
+		</li>
+		<li ng-repeat="item in sidebar.items" class={{item.key}}>
+			<i class="iconfont icon-{{item.icon}}"></i>
+			<!-- ui-sref不支持动态数据？？？？ -->
+			<a href="#/{{item.key}}">{{item.name}}</a>
+		</li>
+</ul>
+<div class="mask" ng-class="{true: 'show'}[sidebar.sidebarShow]" ng-click="sidebar.toggleSidebar()"></div>
