@@ -27,9 +27,6 @@ function makeConf(options) {
     options = options || {};
     var debug = options.debug !== undefined ? options.debug : true;
 
-//dbl全局npm包里dbl server里执行的是webpack.config.js生产模式
-options.debug = true;
-
     var entries = genEntries();
     var chunks = Object.keys(entries);
     var config = {
